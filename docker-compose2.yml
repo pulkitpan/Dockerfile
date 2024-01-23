@@ -1,0 +1,20 @@
+version: '3.2'
+
+services:
+
+  nginx_con:
+    image: nginx
+    ports:
+      - "8080:80"
+
+  jenkins_con:
+    image: jenkins/jenkins
+    ports:
+      - "9999:8080"
+
+  database:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=secretpass
