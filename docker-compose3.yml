@@ -1,0 +1,20 @@
+version: "3.0"
+services:
+
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins:lts
+    restart: alwayis
+    ports:
+      - "8081:8080"
+    volumes:
+      - /home/ec2-user/jenkins_data:/var/jenkins_home
+
+
+  nginx:
+    container_name: nginx_con
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - /home/ec2-user/nginx_data:/abc
