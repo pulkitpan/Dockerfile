@@ -1,0 +1,25 @@
+#integrate docker with jenkins
+pipeline {
+    agent any
+
+    stages {
+        stage('create image') {
+            steps {
+                script{
+                    img = 'mysql:latest'
+                    docker.image("${img}").run('-d --name mysql_con -e MYSQL_ROOT_PASSWORD=secretpass -p 3306:3306')
+                }
+            }
+        }
+    }
+}
+@root172-52-04-22#usermod -a docker jenkins
+@root172-52-04-22#systemctl restart jenkins
+@root172-52-04-22#systemctl status jenkins
+
+# docker plugin install in jenkins
+docker
+docker common
+docker pipeline
+docker build-step
+CloudBees Docker Build and Publish plugin
